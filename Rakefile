@@ -28,7 +28,7 @@ task :build do
 end
 
 task :deb do
-  sh %{ java -jar #{BUILD_DIR}/opt/fpm/lib/fpm.jar -t deb -s dir -n #{NAME} -v #{VERSION} -a all -d "java-runtime-headless" --deb-user root --deb-group root -C ./build . }
+  sh %{ java -jar #{BUILD_DIR}/opt/fpm/lib/fpm.jar -t deb -s dir -n #{NAME} -v #{VERSION} -a all -d "java-runtime-headless" --deb-no-default-config-files --deb-user root --deb-group root -C ./build . }
 end
 
 task :default => [ :clean, :build, :deb ]
