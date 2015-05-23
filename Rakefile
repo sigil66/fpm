@@ -1,6 +1,6 @@
 NAME = 'fpm'
 JRUBY = '1.7.19'
-VERSION = '1.3.4'
+VERSION = '1.3.3'
 BUILD_DIR = './build'
 
 ENV['PATH'] = Dir.pwd + "/jruby-#{JRUBY}/bin:#{ENV['PATH']}"
@@ -22,7 +22,7 @@ task :build do
   sh %{ unzip jruby-bin-#{JRUBY}.zip }
 
   sh %{ jruby -S gem install warbler fpm bundler rspec:3.0.0 insist:0.0.5 pry stud ffi json }
-  sh %{ git clone https://github.com/jordansissel/fpm }
+  sh %{ git clone --branch v#{VERSION} https://github.com/jordansissel/fpm }
   sh %{ cd fpm; warble jar }
   sh %{ mv fpm/fpm.jar #{BUILD_DIR}/opt/fpm/lib/ }
 end
