@@ -1,5 +1,8 @@
-build/
+build_osx/
+build_linux/
 fpm/
 *.deb
+*.rpm
+*.pkg
 jruby*/
 *.zip
